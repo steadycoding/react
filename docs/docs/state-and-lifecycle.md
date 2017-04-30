@@ -378,6 +378,22 @@ this.setState(function(prevState, props) {
 });
 ```
 
+### Modify Child Properties Of State
+
+The title of a post could be updated using an immutability helper
+
+```js
+//This replaces react-addons-update.
+// import update from 'react-addons-update';
+import update from 'immutability-helper';
+
+//You can update this.state.posts[1].title like this.
+this.setState({
+  items: update(this.state.posts, {1: {title: {$set: 'First Post'}}});
+});```
+
+[More about updating state](https://facebook.github.io/react/docs/update.html)
+
 ### State Updates are Merged
 
 When you call `setState()`, React merges the object you provide into the current state.
